@@ -30,6 +30,10 @@
       color: $black;
       padding: 0px 8px;
       margin-left: 10px;
+<<<<<<< HEAD
+=======
+      width: 700px;
+>>>>>>> 77a5642... Add package to run sass scripts with npm build & npm start
       .issue-detail-title{
         @include flexbox(flex-start, flex-start, wrap);
         @include font-size(16px);

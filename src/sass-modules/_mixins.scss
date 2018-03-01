@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 @mixin flexbox($justify-content: flex-start, $align-content: flex-start, $wrap: nowrap){
+=======
+@mixin flexbox($justify-content: flex-start, $align-content: flex-start, $wrap: no-wrap){
+>>>>>>> 77a5642... Add package to run sass scripts with npm build & npm start
   align-content: $align-content;
   display: flex;
   flex-wrap: $wrap;
@@ -9,7 +13,11 @@
   font-size: ($font-size / 16px) * 1rem;
 }
 
+<<<<<<< HEAD
 @mixin inline-flexbox($justify-content: flex-start, $align-content: flex-start, $wrap: nowrap){
+=======
+@mixin inline-flexbox($justify-content: flex-start, $align-content: flex-start, $wrap: no-wrap){
+>>>>>>> 77a5642... Add package to run sass scripts with npm build & npm start
   align-content: $align-content;
   display: inline-flex;
   flex-wrap: $wrap;
@@ -20,6 +28,7 @@
   line-height: ($line-height / 16px) * 1rem;
 }
 
+<<<<<<< HEAD
 @mixin placeholder-style($color: initial, $opacity: 1, $font-weight: 500){
   &::placeholder{
     color: $color;
@@ -39,6 +48,9 @@
 }
 
 @mixin square-container($dimension){
+=======
+@mixin square-picture($dimension){
+>>>>>>> 77a5642... Add package to run sass scripts with npm build & npm start
   height: $dimension;
   width: $dimension;
 }

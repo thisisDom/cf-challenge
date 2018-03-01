@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+<<<<<<< HEAD
 import Issue from './issue/Issue';
 import MenuOption from './menu-option/MenuOption';
+=======
+import IssueContainer from './Issue/Issue';
+>>>>>>> 77a5642... Add package to run sass scripts with npm build & npm start
 import './Issues.css';
 
 class Issues extends Component {
   constructor(props){
     super(props);
     this.state = {
+<<<<<<< HEAD
       loading: false,
       issues: [],
       issueAuthors: [],
@@ -266,10 +271,27 @@ class Issues extends Component {
     this.state.sortSelected = sortBy;
     this.state.showSort = false;
     this.getIssues();
+=======
+      issues: [],
+    };
+  }
+  componentWillMount(){
+    axios.get('https://api.github.com/repos/DestinyItemManager/DIM/issues', {
+      params: {
+        state: "open"
+      }
+    })
+    .then(response => {
+      this.setState({
+        issues: response.data,
+      });
+    });
+>>>>>>> 77a5642... Add package to run sass scripts with npm build & npm start
   }
 
   renderIssues(){
     let issues = this.state.issues;
+<<<<<<< HEAD
 
     if (this.state.authorFilter){
       issues = issues.filter(issue => issue.user.login === this.state.authorFilter );
@@ -362,6 +384,24 @@ class Issues extends Component {
       </div>
       <ul className="issues-list-container">
       {this.renderIssues()}
+=======
+    return issues.map(issue => ( <IssueContainer key={issue.number} data={issue} /> )) ;
+  }
+
+  render(){
+    const issues = this.renderIssues();
+    return (
+    <div className="issues-container">
+      <div className="issues-header">
+        <div className="issues-breakdown-container">
+          --PLACEHOLDER--
+        </div>
+        <div className="issues-sort-container">
+        </div>
+      </div>
+      <ul className="issues-list-container">
+      {issues}
+>>>>>>> 77a5642... Add package to run sass scripts with npm build & npm start
       </ul>
     </div>
   )}
