@@ -1,0 +1,95 @@
+@import './sass-modules/_modules.scss';
+
+.issue-container{
+  @include flexbox(space-between, flex-start, no-wrap);
+  @include font-size(14px);
+  background-color: $white;
+  border-color: $light-grey;
+  border-width: 1px;
+  border-style: solid;
+  padding: 8px 16px;
+  width: 100%;
+  &:hover{
+    background-color: $light-grey;
+  }
+  .issue-info-container{
+    display: flex;
+    .issue-status-container{
+      display: inline;
+      position: relative;
+      top: 3px;
+      .issue-open-icon{
+        fill: $green;
+      }
+      .issue-closed-icon{
+        fill: $red;
+      }
+    }
+    .issue-details-container{
+      display: inline-block;
+      color: $black;
+      padding: 0px 8px;
+      margin-left: 10px;
+      width: 700px;
+      .issue-detail-title{
+        @include flexbox(flex-start, flex-start, wrap);
+        @include font-size(16px);
+        @include line-height(20px);
+        font-weight: 600;
+        a {
+          margin: 0px 5px 2px 0px
+        }
+        .issue-label{
+          @include unselectable;
+          align-items: center;
+          border-radius: 2px;
+          box-shadow: inset 0 -1px 0 rgba(0, 0 , 0, .10);
+          display: inline-flex;
+          font-size: 12px;
+          margin-right: 4px;
+          padding: 1px 6px;
+        }
+      }
+      .issue-detail-footer{
+        color: $dark-grey;
+        margin-top: 4px;
+      }
+    }
+  }
+  .issue-tools-container{
+    display: inline-flex;
+    .issue-assignees-container{
+      display: inline-flex;
+      justify-content: flex-end;
+      padding-right: 15px;
+      width: 100px;
+      .issue-assignee-container{
+        .issue-assignee-avatar{
+          @include square-container(20px);
+          border-radius: 2px;
+        }
+      }
+    }
+    .issue-comment-container{
+      @include inline-flexbox(flex-end)
+      width: 50px;
+      .issue-comment-link{
+        @include inline-flexbox();
+        @include unselectable;
+        color: $black;
+        &:hover {
+          color: $blue;
+          fill: $blue;
+        }
+        .issue-comment-icon{
+          font-size: 16px !important;
+        }
+        .issue-comment-text{
+          font-size: 14px;
+          font-weight: 600px;
+          margin-left: 4px;
+        }
+      }
+    }
+  }
+}
