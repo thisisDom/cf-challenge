@@ -47,6 +47,7 @@ class MenuOption extends Component{
   renderListItems(){
     switch(this.props.type){
 <<<<<<< HEAD
+<<<<<<< HEAD
       case 'authors':
         return this.props.options.map(author => {
           return (
@@ -63,6 +64,9 @@ class MenuOption extends Component{
               </span>
 =======
       case 'author':
+=======
+      case 'authors':
+>>>>>>> 350f1ba... Implement Label filtering on issues
         return this.props.options.map(author => {
           return (
             <li key={author.username} onClick={() => this.props.optionOnClick(author.username)}>
@@ -73,10 +77,14 @@ class MenuOption extends Component{
           )
         })
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 350f1ba... Implement Label filtering on issues
       case 'labels':
         return this.props.options.map(label => {
           return (
             <li key={label.name} onClick={() => this.props.optionOnClick(label.name)}>
+<<<<<<< HEAD
               <span className="menu-selected-container">
                 { this.props.selected === label.name ?
                   (
@@ -87,6 +95,8 @@ class MenuOption extends Component{
                   ""
                 }
               </span>
+=======
+>>>>>>> 350f1ba... Implement Label filtering on issues
               { label.color ?
                 (
                   <span className="menu-item-avatar" style={{backgroundColor: "#" + label.color}} />
@@ -97,6 +107,7 @@ class MenuOption extends Component{
             </li>
           )
         })
+<<<<<<< HEAD
         case 'sort':
           return this.props.options.map(sortBy => {
             return (
@@ -117,6 +128,8 @@ class MenuOption extends Component{
           })
 =======
 >>>>>>> c4c3db9... Implement Author filtering on issues
+=======
+>>>>>>> 350f1ba... Implement Label filtering on issues
       default:
         return;
     }
