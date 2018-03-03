@@ -1,4 +1,4 @@
-@mixin flexbox($justify-content: flex-start, $align-content: flex-start, $wrap: no-wrap){
+@mixin flexbox($justify-content: flex-start, $align-content: flex-start, $wrap: nowrap){
   align-content: $align-content;
   display: flex;
   flex-wrap: $wrap;
@@ -9,7 +9,7 @@
   font-size: ($font-size / 16px) * 1rem;
 }
 
-@mixin inline-flexbox($justify-content: flex-start, $align-content: flex-start, $wrap: no-wrap){
+@mixin inline-flexbox($justify-content: flex-start, $align-content: flex-start, $wrap: nowrap){
   align-content: $align-content;
   display: inline-flex;
   flex-wrap: $wrap;
@@ -20,7 +20,25 @@
   line-height: ($line-height / 16px) * 1rem;
 }
 
-@mixin square-picture($dimension){
+@mixin placeholder-style($color: initial, $opacity: 1, $font-weight: 500){
+  &::placeholder{
+    color: $color;
+    font-weight: $font-weight;
+    opacity: $opacity;
+  }
+  &:-ms-input-placeholder{
+    color: $color;
+    font-weight: $font-weight;
+    opacity: $opacity;
+  }
+  &::-ms-input-placeholder{
+    color: $color;
+    font-weight: $font-weight;
+    opacity: $opacity;
+  }
+}
+
+@mixin square-container($dimension){
   height: $dimension;
   width: $dimension;
 }
