@@ -17,24 +17,34 @@
   max-width: 978px;
   width: 100%;
   .issues-header{
+<<<<<<< HEAD
 >>>>>>> 77a5642... Add package to run sass scripts with npm build & npm start
+=======
+    @include flexbox(space-between);
+>>>>>>> c4c3db9... Implement Author filtering on issues
     @include font-size(16px);
     background-color: $light-grey;
     border-color: $grey;
     border-style: solid;
     border-width: 1px;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c4c3db9... Implement Author filtering on issues
     padding: 0px 10px;
     .issues-menu-container{
       ul{
         list-style: none;
       }
     }
+<<<<<<< HEAD
   }
   .issues-list-container{
     list-style: none;
 =======
     padding: 10px;
 >>>>>>> 77a5642... Add package to run sass scripts with npm build & npm start
+=======
+>>>>>>> c4c3db9... Implement Author filtering on issues
   }
 }

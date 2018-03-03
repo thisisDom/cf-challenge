@@ -78,6 +78,7 @@
               background-color: $blue;
               color: $white;
             }
+<<<<<<< HEAD
             .menu-selected-container{
               @include inline-flexbox(flex-start, center)
               width: 15px;
@@ -87,6 +88,12 @@
               @include square-container(20px)
               border-radius: 5px;
               margin-right: 10px;
+=======
+            .menu-item-avatar{
+              @include square-container(20px)
+              border-radius: 5px;
+              margin: 0px 10px;
+>>>>>>> c4c3db9... Implement Author filtering on issues
             }
           }
         }
