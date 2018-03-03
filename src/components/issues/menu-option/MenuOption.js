@@ -38,12 +38,26 @@ class MenuOption extends Component{
   }
   renderListItems(){
     switch(this.props.type){
-      case 'author':
+      case 'authors':
         return this.props.options.map(author => {
           return (
             <li key={author.username} onClick={() => this.props.optionOnClick(author.username)}>
               <img className="menu-item-avatar" src={author.avatar_url} alt="G" />
               <span>{author.username}</span>
+            </li>
+          )
+        })
+      case 'labels':
+        return this.props.options.map(label => {
+          return (
+            <li key={label.name} onClick={() => this.props.optionOnClick(label.name)}>
+              { label.color ?
+                (
+                  <span className="menu-item-avatar" style={{backgroundColor: "#" + label.color}} />
+                ) :
+                ""
+            }
+              <span>{label.name}</span>
             </li>
           )
         })
