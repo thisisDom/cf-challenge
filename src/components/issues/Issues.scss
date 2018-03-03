@@ -5,11 +5,17 @@
   max-width: 978px;
   width: 100%;
   .issues-header{
+    @include flexbox(space-between);
     @include font-size(16px);
     background-color: $light-grey;
     border-color: $grey;
     border-style: solid;
     border-width: 1px;
-    padding: 10px;
+    padding: 0px 10px;
+    .issues-menu-container{
+      ul{
+        list-style: none;
+      }
+    }
   }
 }
