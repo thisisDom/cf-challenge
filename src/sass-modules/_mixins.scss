@@ -1,12 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 @mixin flexbox($justify-content: flex-start, $align-content: flex-start, $wrap: nowrap){
-=======
-@mixin flexbox($justify-content: flex-start, $align-content: flex-start, $wrap: no-wrap){
->>>>>>> 77a5642... Add package to run sass scripts with npm build & npm start
-=======
-@mixin flexbox($justify-content: flex-start, $align-content: flex-start, $wrap: nowrap){
->>>>>>> c4c3db9... Implement Author filtering on issues
   align-content: $align-content;
   display: flex;
   flex-wrap: $wrap;
@@ -17,15 +9,7 @@
   font-size: ($font-size / 16px) * 1rem;
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 @mixin inline-flexbox($justify-content: flex-start, $align-content: flex-start, $wrap: nowrap){
-=======
-@mixin inline-flexbox($justify-content: flex-start, $align-content: flex-start, $wrap: no-wrap){
->>>>>>> 77a5642... Add package to run sass scripts with npm build & npm start
-=======
-@mixin inline-flexbox($justify-content: flex-start, $align-content: flex-start, $wrap: nowrap){
->>>>>>> c4c3db9... Implement Author filtering on issues
   align-content: $align-content;
   display: inline-flex;
   flex-wrap: $wrap;
@@ -36,10 +20,6 @@
   line-height: ($line-height / 16px) * 1rem;
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c4c3db9... Implement Author filtering on issues
 @mixin placeholder-style($color: initial, $opacity: 1, $font-weight: 500){
   &::placeholder{
     color: $color;
@@ -59,12 +39,6 @@
 }
 
 @mixin square-container($dimension){
-<<<<<<< HEAD
-=======
-@mixin square-picture($dimension){
->>>>>>> 77a5642... Add package to run sass scripts with npm build & npm start
-=======
->>>>>>> c4c3db9... Implement Author filtering on issues
   height: $dimension;
   width: $dimension;
 }

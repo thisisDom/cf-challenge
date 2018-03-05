@@ -1,5 +1,27 @@
+@import './sass-modules/_modules.scss';
+
+*{
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+a{
+  @include unselectable;
+  text-decoration: none;
+  color: inherit;
+  &:hover{
+    color: $blue;
+  }
+}
+
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: "Helvetica";
+}
+
+input{
+  border: solid;
+  border-width: 1px;
 }
