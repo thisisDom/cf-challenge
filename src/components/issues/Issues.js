@@ -29,6 +29,46 @@ class Issues extends Component {
     };
   }
 
+  componentWillMount(){
+    this.getIssues();
+  }
+
+  applyAuthorFilter(username){
+    if (username === this.state.authorFilter){
+      this.setState({
+        authorFilter: null,
+        showAuthors: false,
+      })
+    }
+    else{
+      this.setState({
+        authorFilter: username,
+        showAuthors: false,
+      });
+    }
+  }
+
+  applyLabelFilter(name){
+    if (name === this.state.labelFilter){
+      this.setState({
+        labelFilter: null,
+        showLabels: false,
+      })
+    }
+    else{
+      this.setState({
+        labelFilter: name,
+        showLabels: false,
+      });
+    }
+  }
+
+  applySort(sortBy){
+    this.state.sortSelected = sortBy;
+    this.state.showSort = false;
+    this.getIssues();
+  }
+
   getIssues(){
     let { authorFilter, labelFilter, sortSelected } = this.state;
     let sortBy, sortDirection;
@@ -37,30 +77,30 @@ class Issues extends Component {
     })
     switch(sortSelected){
       case 'least recently updated':
-        sortBy= "updated"
-        sortDirection="asc"
-        break;
+      sortBy= "updated"
+      sortDirection="asc"
+      break;
       case 'recently updated':
-        sortBy= "updated"
-        sortDirection="desc"
-        break;
+      sortBy= "updated"
+      sortDirection="desc"
+      break;
       case 'least commented':
-        sortBy= "comment"
-        sortDirection="asc"
-        break;
+      sortBy= "comment"
+      sortDirection="asc"
+      break;
       case 'most commented':
-        sortBy= "comments"
-        sortDirection="desc"
-        break;
+      sortBy= "comments"
+      sortDirection="desc"
+      break;
       case 'oldest':
-        sortBy= "created"
-        sortDirection="asc"
-        break;
+      sortBy= "created"
+      sortDirection="asc"
+      break;
       case 'newest':
       default:
-        sortBy= "created"
-        sortDirection="desc"
-        break;
+      sortBy= "created"
+      sortDirection="desc"
+      break;
     }
     let params = {
       state: "open"
@@ -143,129 +183,6 @@ class Issues extends Component {
         issueLabels: issueLabels,
       });
     })
-  }
-
-  componentWillMount(){
-    this.getIssues();
-  }
-
-  applyAuthorFilter(username){
-    if (username === this.state.authorFilter){
-      this.setState({
-        authorFilter: null,
-        showAuthors: false,
-      })
-    }
-    else{
-      this.setState({
-        authorFilter: username,
-        showAuthors: false,
-      });
-    }
-  }
-
-  applyLabelFilter(name){
-    if (name === this.state.labelFilter){
-      this.setState({
-        labelFilter: null,
-        showLabels: false,
-      })
-    }
-    else{
-      this.setState({
-        labelFilter: name,
-        showLabels: false,
-      });
-    }
-  }
-
-  applySort(sortBy){
-    // let issues = this.state.issues;
-    // switch(sortBy){
-    //   case 'least recently updated':
-    //     issues.sort((issueA, issueB) => {
-    //         let a = issueA.updated_at;
-    //         let b = issueB.updated_at;
-    //         if (a < b){
-    //           return -1;
-    //         }
-    //         if (a > b){
-    //           return 1;
-    //         }
-    //         return issueA.number < issueB.number ? 1 : -1
-    //     })
-    //     break;
-    //   case 'recently updated':
-    //     issues.sort((issueA, issueB) => {
-    //         let a = issueA.updated_at;
-    //         let b = issueB.updated_at;
-    //         if (a > b){
-    //           return -1;
-    //         }
-    //         if (a < b){
-    //           return 1;
-    //         }
-    //         return issueA.number < issueB.number ? 1 : -1
-    //     })
-    //     break;
-    //   case 'least commented':
-    //     issues.sort((issueA, issueB) => {
-    //         let a = issueA.comments;
-    //         let b = issueB.comments;
-    //         if (a < b){
-    //           return -1;
-    //         }
-    //         if (a > b){
-    //           return 1;
-    //         }
-    //         return issueA.number < issueB.number ? 1 : -1
-    //     })
-    //     break;
-    //   case 'most commented':
-    //     issues.sort((issueA, issueB) => {
-    //         let a = issueA.comments;
-    //         let b = issueB.comments;
-    //         if (a > b){
-    //           return -1;
-    //         }
-    //         if (a < b){
-    //           return 1;
-    //         }
-    //         return issueA.number < issueB.number ? 1 : -1
-    //     })
-    //     break;
-    //   case 'oldest':
-    //     issues.sort((issueA, issueB) => {
-    //         let a = issueA.created_at;
-    //         let b = issueB.created_at;
-    //         if (a < b){
-    //           return -1;
-    //         }
-    //         if (a > b){
-    //           return 1;
-    //         }
-    //         return issueA.number < issueB.number ? 1 : -1
-    //     })
-    //     break;
-    //   case 'newest':
-    //   default:
-    //     issues.sort((issueA, issueB) => {
-    //       let a = issueA.created_at;
-    //       let b = issueB.created_at;
-    //       if (a > b){
-    //         return -1;
-    //       }
-    //       if (a < b){
-    //         return 1;
-    //       }
-    //       return issueA.number < issueB.number ? 1 : -1
-    //     })
-    //     break;
-    // }
-
-    this.state.sortSelected = sortBy;
-    this.state.showSort = false;
-    this.getIssues();
   }
 
   renderIssues(){
