@@ -1,0 +1,103 @@
+.menu-option-container {
+  align-content: flex-end;
+  display: inline-flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  flex-direction: column;
+  height: 100%;
+  position: relative; }
+  .menu-option-container .menu-title {
+    font-size: 1rem;
+    user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    -webkit-user-select: none;
+    color: #586069;
+    cursor: pointer;
+    display: inline;
+    height: 100%;
+    padding: 13px 15px; }
+    .menu-option-container .menu-title::after {
+      border-right-color: transparent;
+      border-bottom-color: transparent;
+      border-left-color: transparent;
+      border-style: solid;
+      border-width: 4px;
+      display: inline-block;
+      margin-left: 5px;
+      content: "";
+      height: 0px;
+      width: 0px; }
+  .menu-option-container .menu-dropdown-wrapper {
+    align-content: flex-start;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    height: 0px;
+    width: 0px; }
+    .menu-option-container .menu-dropdown-wrapper .menu-dropdown-modal {
+      position: absolute;
+      right: 0px;
+      width: 300px; }
+      .menu-option-container .menu-dropdown-wrapper .menu-dropdown-modal .menu-dropdown-container {
+        background-color: #f6f8fa;
+        border-color: #e1e4e8;
+        border-style: solid;
+        border-width: 1px;
+        box-shadow: 0px 3px 10px #f6f8fa; }
+        .menu-option-container .menu-dropdown-wrapper .menu-dropdown-modal .menu-dropdown-container .menu-dropdown-header {
+          align-content: flex-start;
+          display: flex;
+          flex-wrap: nowrap;
+          justify-content: space-between;
+          font-size: 0.875rem;
+          border-color: #e1e4e8;
+          border-style: solid;
+          border-width: 0px 0px 1px;
+          font-weight: 600;
+          padding: 10px; }
+          .menu-option-container .menu-dropdown-wrapper .menu-dropdown-modal .menu-dropdown-container .menu-dropdown-header .menu-dropdown-close {
+            fill: #586069; }
+            .menu-option-container .menu-dropdown-wrapper .menu-dropdown-modal .menu-dropdown-container .menu-dropdown-header .menu-dropdown-close:hover {
+              fill: #24292e; }
+        .menu-option-container .menu-dropdown-wrapper .menu-dropdown-modal .menu-dropdown-container .menu-options-list {
+          list-style: none;
+          max-height: 400px;
+          overflow: auto; }
+          .menu-option-container .menu-dropdown-wrapper .menu-dropdown-modal .menu-dropdown-container .menu-options-list li {
+            align-content: flex-start;
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            font-size: 0.875rem;
+            user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -o-user-select: none;
+            -webkit-user-select: none;
+            align-items: center;
+            background-color: #ffffff;
+            border-color: #e1e4e8;
+            border-style: solid;
+            border-width: 0px 0px 1px;
+            color: #586069;
+            cursor: pointer;
+            padding: 8px 20px; }
+            .menu-option-container .menu-dropdown-wrapper .menu-dropdown-modal .menu-dropdown-container .menu-options-list li:last-child {
+              border: none; }
+            .menu-option-container .menu-dropdown-wrapper .menu-dropdown-modal .menu-dropdown-container .menu-options-list li:hover {
+              background-color: #0366d6;
+              color: #ffffff; }
+            .menu-option-container .menu-dropdown-wrapper .menu-dropdown-modal .menu-dropdown-container .menu-options-list li .menu-selected-container {
+              align-content: center;
+              display: inline-flex;
+              flex-wrap: nowrap;
+              justify-content: flex-start;
+              width: 15px;
+              margin-right: 5px; }
+            .menu-option-container .menu-dropdown-wrapper .menu-dropdown-modal .menu-dropdown-container .menu-options-list li .menu-item-avatar {
+              height: 20px;
+              width: 20px;
+              border-radius: 5px;
+              margin-right: 10px; }

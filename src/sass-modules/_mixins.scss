@@ -1,0 +1,52 @@
+@mixin flexbox($justify-content: flex-start, $align-content: flex-start, $wrap: nowrap){
+  align-content: $align-content;
+  display: flex;
+  flex-wrap: $wrap;
+  justify-content: $justify-content;
+}
+
+@mixin font-size($font-size) {
+  font-size: ($font-size / 16px) * 1rem;
+}
+
+@mixin inline-flexbox($justify-content: flex-start, $align-content: flex-start, $wrap: nowrap){
+  align-content: $align-content;
+  display: inline-flex;
+  flex-wrap: $wrap;
+  justify-content: $justify-content;
+}
+
+@mixin line-height($line-height) {
+  line-height: ($line-height / 16px) * 1rem;
+}
+
+@mixin placeholder-style($color: initial, $opacity: 1, $font-weight: 500){
+  &::placeholder{
+    color: $color;
+    font-weight: $font-weight;
+    opacity: $opacity;
+  }
+  &:-ms-input-placeholder{
+    color: $color;
+    font-weight: $font-weight;
+    opacity: $opacity;
+  }
+  &::-ms-input-placeholder{
+    color: $color;
+    font-weight: $font-weight;
+    opacity: $opacity;
+  }
+}
+
+@mixin square-container($dimension){
+  height: $dimension;
+  width: $dimension;
+}
+
+@mixin unselectable{
+  user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  -webkit-user-select: none;
+}

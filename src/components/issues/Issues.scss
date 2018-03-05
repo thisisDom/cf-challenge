@@ -1,0 +1,29 @@
+@import './sass-modules/_modules.scss';
+
+.issues-container{
+  margin: auto;
+  max-width: 978px;
+  min-width: 768px;
+  width: 96%;
+  .issues-repo-name{
+    @include font-size(28px)
+    padding: 10px 0px;
+  }
+  .issues-header{
+    @include flexbox(space-between);
+    @include font-size(16px);
+    background-color: $light-grey;
+    border-color: $grey;
+    border-style: solid;
+    border-width: 1px;
+    padding: 0px 10px;
+    .issues-menu-container{
+      ul{
+        list-style: none;
+      }
+    }
+  }
+  .issues-list-container{
+    list-style: none;
+  }
+}
