@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import Issue from './issue/Issue';
 import MenuOption from './menu-option/MenuOption';
 =======
@@ -9,6 +10,9 @@ import IssueContainer from './Issue/Issue';
 >>>>>>> 77a5642... Add package to run sass scripts with npm build & npm start
 =======
 import IssueContainer from './issue/Issue';
+=======
+import Issue from './issue/Issue';
+>>>>>>> 7f7f160... Implement Sorting on issues
 import MenuOption from './menu-option/MenuOption';
 >>>>>>> c4c3db9... Implement Author filtering on issues
 import './Issues.css';
@@ -17,6 +21,7 @@ class Issues extends Component {
   constructor(props){
     super(props);
     this.state = {
+<<<<<<< HEAD
 <<<<<<< HEAD
       loading: false,
       issues: [],
@@ -277,6 +282,9 @@ class Issues extends Component {
     this.state.showSort = false;
     this.getIssues();
 =======
+=======
+      loading: false,
+>>>>>>> 7f7f160... Implement Sorting on issues
       issues: [],
       issueAuthors: [],
       showAuthors: false,
@@ -284,14 +292,66 @@ class Issues extends Component {
       issueLabels: [],
       showLabels: false,
       labelFilter: null,
+      sortSelected: 'newest',
+      sortOptions: [
+        { name: "Newest", value: 'newest'},
+        { name: "Oldest", value: 'oldest'},
+        { name: "Most Commented", value: 'most commented'},
+        { name: "Least Commented", value: 'least commented'},
+        { name: "Recently Updated", value: 'recently updated'},
+        { name: "Least Recently Updated", value: 'least recently updated'},
+      ],
+      showSort: false,
     };
   }
 
-  componentWillMount(){
+  getIssues(){
+    let { authorFilter, labelFilter, sortSelected } = this.state;
+    let sortBy, sortDirection;
+    this.setState({
+      loading: true,
+    })
+    switch(sortSelected){
+      case 'least recently updated':
+        sortBy= "updated"
+        sortDirection="asc"
+        break;
+      case 'recently updated':
+        sortBy= "updated"
+        sortDirection="desc"
+        break;
+      case 'least commented':
+        sortBy= "comment"
+        sortDirection="asc"
+        break;
+      case 'most commented':
+        sortBy= "comments"
+        sortDirection="desc"
+        break;
+      case 'oldest':
+        sortBy= "created"
+        sortDirection="asc"
+        break;
+      case 'newest':
+      default:
+        sortBy= "created"
+        sortDirection="desc"
+        break;
+    }
+    let params = {
+      state: "open"
+    };
+    if(authorFilter){
+      params.creator = authorFilter
+    }
+    if(labelFilter){
+      params.labels = labelFilter
+    }
+    params.sort = sortBy
+    params.direction = sortDirection
+
     axios.get('https://api.github.com/repos/DestinyItemManager/DIM/issues', {
-      params: {
-        state: "open"
-      }
+      params: params
     })
     .then(response => {
       let authors = {}
@@ -335,14 +395,14 @@ class Issues extends Component {
       }
 
       issueLabels.sort((labelA, labelB) => {
-        let a = labelA.name.toLowerCase();
-        let b = labelB.name.toLowerCase();
-        if ( a === 'Unlabeled'){
+        if ( labelA.name === 'Unlabeled'){
           return -1;
         }
-        if ( b === 'Unlabeled'){
+        if ( labelB.name === 'Unlabeled'){
           return 1;
         }
+        let a = labelA.name.toLowerCase();
+        let b = labelB.name.toLowerCase();
         if (a < b){
           return -1;
         }
@@ -353,12 +413,21 @@ class Issues extends Component {
       })
 
       this.setState({
+        loading: false,
         issues: issues,
         issueAuthors: issueAuthors,
         issueLabels: issueLabels,
       });
+<<<<<<< HEAD
     });
 >>>>>>> 77a5642... Add package to run sass scripts with npm build & npm start
+=======
+    })
+  }
+
+  componentWillMount(){
+    this.getIssues();
+>>>>>>> 7f7f160... Implement Sorting on issues
   }
 
   applyAuthorFilter(username){
@@ -389,6 +458,95 @@ class Issues extends Component {
         showLabels: false,
       });
     }
+  }
+
+  applySort(sortBy){
+    // let issues = this.state.issues;
+    // switch(sortBy){
+    //   case 'least recently updated':
+    //     issues.sort((issueA, issueB) => {
+    //         let a = issueA.updated_at;
+    //         let b = issueB.updated_at;
+    //         if (a < b){
+    //           return -1;
+    //         }
+    //         if (a > b){
+    //           return 1;
+    //         }
+    //         return issueA.number < issueB.number ? 1 : -1
+    //     })
+    //     break;
+    //   case 'recently updated':
+    //     issues.sort((issueA, issueB) => {
+    //         let a = issueA.updated_at;
+    //         let b = issueB.updated_at;
+    //         if (a > b){
+    //           return -1;
+    //         }
+    //         if (a < b){
+    //           return 1;
+    //         }
+    //         return issueA.number < issueB.number ? 1 : -1
+    //     })
+    //     break;
+    //   case 'least commented':
+    //     issues.sort((issueA, issueB) => {
+    //         let a = issueA.comments;
+    //         let b = issueB.comments;
+    //         if (a < b){
+    //           return -1;
+    //         }
+    //         if (a > b){
+    //           return 1;
+    //         }
+    //         return issueA.number < issueB.number ? 1 : -1
+    //     })
+    //     break;
+    //   case 'most commented':
+    //     issues.sort((issueA, issueB) => {
+    //         let a = issueA.comments;
+    //         let b = issueB.comments;
+    //         if (a > b){
+    //           return -1;
+    //         }
+    //         if (a < b){
+    //           return 1;
+    //         }
+    //         return issueA.number < issueB.number ? 1 : -1
+    //     })
+    //     break;
+    //   case 'oldest':
+    //     issues.sort((issueA, issueB) => {
+    //         let a = issueA.created_at;
+    //         let b = issueB.created_at;
+    //         if (a < b){
+    //           return -1;
+    //         }
+    //         if (a > b){
+    //           return 1;
+    //         }
+    //         return issueA.number < issueB.number ? 1 : -1
+    //     })
+    //     break;
+    //   case 'newest':
+    //   default:
+    //     issues.sort((issueA, issueB) => {
+    //       let a = issueA.created_at;
+    //       let b = issueB.created_at;
+    //       if (a > b){
+    //         return -1;
+    //       }
+    //       if (a < b){
+    //         return 1;
+    //       }
+    //       return issueA.number < issueB.number ? 1 : -1
+    //     })
+    //     break;
+    // }
+
+    this.state.sortSelected = sortBy;
+    this.state.showSort = false;
+    this.getIssues();
   }
 
   renderIssues(){
@@ -500,8 +658,12 @@ class Issues extends Component {
 =======
 >>>>>>> 350f1ba... Implement Label filtering on issues
 
+<<<<<<< HEAD
     return issues.map(issue => ( <IssueContainer key={issue.number} data={issue} /> ));
 >>>>>>> c4c3db9... Implement Author filtering on issues
+=======
+    return issues.map(issue => ( <Issue key={issue.number} data={issue} /> ));
+>>>>>>> 7f7f160... Implement Sorting on issues
   }
 
   toggleMenu(type){
@@ -509,13 +671,22 @@ class Issues extends Component {
       case "authors":
         this.setState({
           showAuthors: !this.state.showAuthors,
+          showSort: false,
           showLabels: false,
         });
         return;
       case "labels":
         this.setState({
           showAuthors: false,
+          showSort: false,
           showLabels: !this.state.showLabels,
+        });
+        return;
+      case "sort":
+        this.setState({
+          showAuthors: false,
+          showLabels: false,
+          showSort: !this.state.showSort,
         });
         return;
       default:
@@ -524,9 +695,10 @@ class Issues extends Component {
   }
 
   render(){
-    const { issueAuthors, showAuthors, issueLabels, showLabels  } = this.state
+    const { issueAuthors, showAuthors, authorFilter, issueLabels, showLabels, labelFilter, sortOptions, showSort, sortSelected  } = this.state
     return (
     <div className="issues-container">
+      <div className="issues-repo-name">Open Issues for the <a href="https://www.github.com/DestinyItemManager/DIM">DestinyItemManager Repository</a></div>
       <div className="issues-header">
         <div className="issues-breakdown-container">
         </div>
@@ -534,19 +706,33 @@ class Issues extends Component {
           <ul>
              <MenuOption
                 type="authors"
-                title="Author"
+                menuTitle="Authors"
+                dropdownHeader="Filter by author"
                 options={issueAuthors}
                 toggleMenu={() => this.toggleMenu("authors")}
                 optionOnClick={(username) => this.applyAuthorFilter(username)}
                 showMenu={showAuthors}
+                selected={authorFilter}
              />
              <MenuOption
                 type="labels"
-                title="Labels"
+                menuTitle="Labels"
+                dropdownHeader="Fitler by label"
                 options={issueLabels}
                 toggleMenu={() => this.toggleMenu("labels")}
                 optionOnClick={(username) => this.applyLabelFilter(username)}
                 showMenu={showLabels}
+                selected={labelFilter}
+             />
+             <MenuOption
+                type="sort"
+                menuTitle="Sort"
+                dropdownHeader="Sort by"
+                options={sortOptions}
+                toggleMenu={() => this.toggleMenu("sort")}
+                optionOnClick={(sortBy) => this.applySort(sortBy)}
+                showMenu={showSort}
+                selected={sortSelected}
              />
            </ul>
         </div>

@@ -17,20 +17,28 @@ class MenuOption extends Component{
   showMenu(){
     if(this.state.showMenu){
 <<<<<<< HEAD
+<<<<<<< HEAD
       let header = this.props.dropdownHeader;
 =======
       let title = this.props.title;
 >>>>>>> c4c3db9... Implement Author filtering on issues
+=======
+      let header = this.props.dropdownHeader;
+>>>>>>> 7f7f160... Implement Sorting on issues
       return (
         <div className="menu-dropdown-wrapper">
           <div className="menu-dropdown-modal">
             <div className="menu-dropdown-container">
               <div className="menu-dropdown-header">
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <span>{header}</span>
 =======
                 <span>Filter by {title.toLowerCase()}</span>
 >>>>>>> c4c3db9... Implement Author filtering on issues
+=======
+                <span>{header}</span>
+>>>>>>> 7f7f160... Implement Sorting on issues
                 <svg className="menu-dropdown-close menu-close" height="16" role="img" version="1.1" viewBox="0 0 12 16" width="12" onClick={() => this.props.toggleMenu()}>
                   <path fillRule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"></path>
                 </svg>
@@ -62,6 +70,7 @@ class MenuOption extends Component{
                   ""
                 }
               </span>
+<<<<<<< HEAD
 =======
       case 'author':
 =======
@@ -71,6 +80,8 @@ class MenuOption extends Component{
           return (
             <li key={author.username} onClick={() => this.props.optionOnClick(author.username)}>
 >>>>>>> c4c3db9... Implement Author filtering on issues
+=======
+>>>>>>> 7f7f160... Implement Sorting on issues
               <img className="menu-item-avatar" src={author.avatar_url} alt="G" />
               <span>{author.username}</span>
             </li>
@@ -85,6 +96,9 @@ class MenuOption extends Component{
           return (
             <li key={label.name} onClick={() => this.props.optionOnClick(label.name)}>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7f7f160... Implement Sorting on issues
               <span className="menu-selected-container">
                 { this.props.selected === label.name ?
                   (
@@ -95,8 +109,11 @@ class MenuOption extends Component{
                   ""
                 }
               </span>
+<<<<<<< HEAD
 =======
 >>>>>>> 350f1ba... Implement Label filtering on issues
+=======
+>>>>>>> 7f7f160... Implement Sorting on issues
               { label.color ?
                 (
                   <span className="menu-item-avatar" style={{backgroundColor: "#" + label.color}} />
@@ -108,6 +125,9 @@ class MenuOption extends Component{
           )
         })
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7f7f160... Implement Sorting on issues
         case 'sort':
           return this.props.options.map(sortBy => {
             return (
@@ -126,15 +146,19 @@ class MenuOption extends Component{
               </li>
             )
           })
+<<<<<<< HEAD
 =======
 >>>>>>> c4c3db9... Implement Author filtering on issues
 =======
 >>>>>>> 350f1ba... Implement Label filtering on issues
+=======
+>>>>>>> 7f7f160... Implement Sorting on issues
       default:
         return;
     }
   }
   render(){
+<<<<<<< HEAD
 <<<<<<< HEAD
     const { toggleMenu, menuTitle } = this.props;
     return (
@@ -146,6 +170,12 @@ class MenuOption extends Component{
       <li className="menu-option-container">
         <div className="menu-title" onClick={() => toggleMenu()}>{title}</div>
 >>>>>>> c4c3db9... Implement Author filtering on issues
+=======
+    const { toggleMenu, menuTitle } = this.props;
+    return (
+      <li className="menu-option-container">
+        <div className="menu-title" onClick={() => toggleMenu()}>{menuTitle}</div>
+>>>>>>> 7f7f160... Implement Sorting on issues
         {this.showMenu()}
       </li>
   )}

@@ -79,11 +79,15 @@
               color: $white;
             }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7f7f160... Implement Sorting on issues
             .menu-selected-container{
               @include inline-flexbox(flex-start, center)
               width: 15px;
               margin-right: 5px;
             }
+<<<<<<< HEAD
             .menu-item-avatar{
               @include square-container(20px)
               border-radius: 5px;
@@ -94,6 +98,12 @@
               border-radius: 5px;
               margin: 0px 10px;
 >>>>>>> c4c3db9... Implement Author filtering on issues
+=======
+            .menu-item-avatar{
+              @include square-container(20px)
+              border-radius: 5px;
+              margin-right: 10px;
+>>>>>>> 7f7f160... Implement Sorting on issues
             }
           }
         }
