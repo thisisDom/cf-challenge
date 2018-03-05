@@ -3,7 +3,12 @@
 .issues-container{
   margin: auto;
   max-width: 978px;
-  width: 100%;
+  min-width: 768px;
+  width: 96%;
+  .issues-repo-name{
+    @include font-size(28px)
+    padding: 10px 0px;
+  }
   .issues-header{
     @include flexbox(space-between);
     @include font-size(16px);
@@ -17,5 +22,8 @@
         list-style: none;
       }
     }
+  }
+  .issues-list-container{
+    list-style: none;
   }
 }

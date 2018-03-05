@@ -19,5 +19,11 @@
     "build": "npm-run-all build-css build-js",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "jest-mock-axios": "^1.0.21",
+    "react-test-renderer": "^16.2.0"
   }
 }

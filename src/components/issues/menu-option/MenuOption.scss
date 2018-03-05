@@ -78,10 +78,15 @@
               background-color: $blue;
               color: $white;
             }
+            .menu-selected-container{
+              @include inline-flexbox(flex-start, center)
+              width: 15px;
+              margin-right: 5px;
+            }
             .menu-item-avatar{
               @include square-container(20px)
               border-radius: 5px;
-              margin: 0px 10px;
+              margin-right: 10px;
             }
           }
         }
