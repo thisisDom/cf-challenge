@@ -16,13 +16,13 @@ class MenuOption extends Component{
 
   showMenu(){
     if(this.state.showMenu){
-      let title = this.props.title;
+      let header = this.props.dropdownHeader;
       return (
         <div className="menu-dropdown-wrapper">
           <div className="menu-dropdown-modal">
             <div className="menu-dropdown-container">
               <div className="menu-dropdown-header">
-                <span>Filter by {title.toLowerCase()}</span>
+                <span>{header}</span>
                 <svg className="menu-dropdown-close menu-close" height="16" role="img" version="1.1" viewBox="0 0 12 16" width="12" onClick={() => this.props.toggleMenu()}>
                   <path fillRule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"></path>
                 </svg>
@@ -42,6 +42,16 @@ class MenuOption extends Component{
         return this.props.options.map(author => {
           return (
             <li key={author.username} onClick={() => this.props.optionOnClick(author.username)}>
+              <span className="menu-selected-container">
+                { this.props.selected === author.username ?
+                  (
+                      <svg aria-hidden="true" className="menu-selected-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12">
+                        <path fillRule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"></path>
+                    </svg>
+                  ) :
+                  ""
+                }
+              </span>
               <img className="menu-item-avatar" src={author.avatar_url} alt="G" />
               <span>{author.username}</span>
             </li>
@@ -51,6 +61,16 @@ class MenuOption extends Component{
         return this.props.options.map(label => {
           return (
             <li key={label.name} onClick={() => this.props.optionOnClick(label.name)}>
+              <span className="menu-selected-container">
+                { this.props.selected === label.name ?
+                  (
+                      <svg aria-hidden="true" className="menu-selected-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12">
+                        <path fillRule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"></path>
+                    </svg>
+                  ) :
+                  ""
+                }
+              </span>
               { label.color ?
                 (
                   <span className="menu-item-avatar" style={{backgroundColor: "#" + label.color}} />
@@ -61,15 +81,33 @@ class MenuOption extends Component{
             </li>
           )
         })
+        case 'sort':
+          return this.props.options.map(sortBy => {
+            return (
+              <li key={sortBy.name} onClick={() => this.props.optionOnClick(sortBy.value)}>
+                <span className="menu-selected-container">
+                  { this.props.selected === sortBy.value ?
+                    (
+                        <svg aria-hidden="true" className="menu-selected-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12">
+                          <path fillRule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"></path>
+                      </svg>
+                    ) :
+                    ""
+                  }
+                </span>
+                <span>{sortBy.name}</span>
+              </li>
+            )
+          })
       default:
         return;
     }
   }
   render(){
-    const { toggleMenu, title } = this.props;
+    const { toggleMenu, menuTitle } = this.props;
     return (
       <li className="menu-option-container">
-        <div className="menu-title" onClick={() => toggleMenu()}>{title}</div>
+        <div className="menu-title" onClick={() => toggleMenu()}>{menuTitle}</div>
         {this.showMenu()}
       </li>
   )}
